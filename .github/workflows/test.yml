@@ -1,0 +1,28 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - run: bun run lint:check
+      - run: bun run build
+      - name: Start build
+        run: |
+          bun run build
+          bun start > /tmp/stdout.log 2> /tmp/stderr.log &
+      - name: Test server
+        run: |
+          sleep 2
+          curl --retry-connrefused --retry 4 http://localhost:5173
