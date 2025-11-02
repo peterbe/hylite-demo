@@ -1,0 +1,49 @@
+{
+  "samples": [
+    {
+      "url": "/code-samples/bun-build.bash",
+      "language": "Bash",
+      "name": "bun-build.bash"
+    },
+    {
+      "url": "/code-samples/euclidean-algorithm.basic",
+      "language": "BASIC",
+      "name": "euclidean-algorithm.basic"
+    },
+    {
+      "url": "/code-samples/a11y-dark.css",
+      "language": "CSS",
+      "name": "a11y-dark.css"
+    },
+    {
+      "url": "/code-samples/monokai.css",
+      "language": "CSS",
+      "name": "monokai.css"
+    },
+    {
+      "url": "/code-samples/c2f.go",
+      "language": "Go",
+      "name": "c2f.go"
+    },
+    {
+      "url": "/code-samples/select.html",
+      "language": "HTML",
+      "name": "select.html"
+    },
+    {
+      "url": "/code-samples/collatz.py",
+      "language": "Python",
+      "name": "collatz.py"
+    },
+    {
+      "url": "/code-samples/c2f.rb",
+      "language": "Ruby",
+      "name": "c2f.rb"
+    },
+    {
+      "url": "/code-samples/c2f.rs",
+      "language": "Rust",
+      "name": "c2f.rs"
+    }
+  ]
+}

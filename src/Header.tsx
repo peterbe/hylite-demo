@@ -1,0 +1,65 @@
+import { useEffect } from "react"
+import { useLocalStorage } from "usehooks-ts"
+
+export function Header() {
+  const [theme, setTheme] = useLocalStorage<"light" | "dark">(
+    "theme",
+    window.matchMedia?.("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light",
+  )
+  useEffect(() => {
+    const html = document.documentElement
+    if (theme) {
+      html.setAttribute("data-theme", theme)
+    }
+  }, [theme])
+
+  return (
+    <nav>
+      <ul>
+        <li>
+          <h1>hylite demo</h1>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="https://github.com/peterbe/hylite">GitHub</a>
+        </li>
+        <li>
+          <a href="https://www.peterbe.com">Peterbe.com</a>
+        </li>
+        <li>
+          <a
+            className="contrast"
+            aria-label="Turn on dark mode"
+            data-discover="true"
+            href="/"
+            onClick={(event) => {
+              event.preventDefault()
+              setTheme((prev) => (prev === "light" ? "dark" : "light"))
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 32 32"
+              fill="currentColor"
+              className="icon-theme-toggle "
+            >
+              <title>Toggle mode</title>
+              <clipPath id="theme-toggle-cutout">
+                <path d="M0-11h25a1 1 0 0017 13v30H0Z"></path>
+              </clipPath>
+              <g clipPath="url(#theme-toggle-cutout)">
+                <circle cx="16" cy="16" r="8.4"></circle>
+                <path d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z"></path>
+              </g>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  )
+}

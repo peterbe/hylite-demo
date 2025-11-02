@@ -1,0 +1,24 @@
+.themeButton {
+  padding: 5px 10px;
+  margin: 1px;
+  font-size: 15px;
+}
+
+.highlightedPre {
+  border-radius: 6px;
+}
+
+.highlightedCode {
+  padding: 20px 10px;
+}
+
+textarea.codeInput {
+  font-family: monospace;
+  font-size: 80%;
+}
+
+.filterButton {
+  padding: 5px 10px;
+  margin: 1px;
+  font-size: 15px;
+}
