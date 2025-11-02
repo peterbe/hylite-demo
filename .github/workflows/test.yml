@@ -19,7 +19,7 @@ jobs:
       - run: bun run lint
       - run: bun run tsc
       - run: bun run build
-      - name: Start build
+      - name: Start build & server
         run: |
           bun run build
           bun start > /tmp/stdout.log 2> /tmp/stderr.log &
@@ -27,3 +27,10 @@ jobs:
         run: |
           sleep 2
           curl --retry-connrefused --retry 4 http://localhost:5173
+      - name: Debug logs
+        if: failure()
+        run: |
+          echo "===== STDOUT ====="
+          cat /tmp/stdout.log
+          echo "===== STDERR ====="
+          cat /tmp/stderr.log
