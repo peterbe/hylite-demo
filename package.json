@@ -13,7 +13,8 @@
     "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
     "prestart": "bun run codegens",
     "##start": "NODE_ENV=production bun src/index.ts",
-    "start": "serve dist"
+    "start": "serve dist",
+    "prepare": "husky"
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
@@ -29,6 +30,7 @@
     "@types/bun": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "husky": "^9.1.7",
     "serve": "^14.2.5"
   }
 }
