@@ -7,6 +7,35 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "headers": [
+      {
+        "source": "/styles/*.*",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=315360000"
+          }
+        ]
+      },
+      {
+        "source": "/index-*.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=315360000"
+          }
+        ]
+      },
+      {
+        "source": "/index-*.css",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=315360000"
+          }
+        ]
+      }
     ]
   }
 }
