@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["**", "!!**/dist", "!!code-samples"]
+    "includes": ["**", "!!**/dist", "!!code-samples", "!!src/_*.json"]
   },
   "formatter": {
     "enabled": true,
